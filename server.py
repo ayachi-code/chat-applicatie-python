@@ -41,6 +41,9 @@ def registreren():
     wachtwoord_maken = input("Type je wachtwoord... ")
     wachtwoord_maken = input("Herhaal je wachtwoord correct... ")
     cur.execute("INSERT INTO gegevens (naam,wachtwoord) VALUES (%s,%s)", (naam_maken,wachtwoord_maken))
+    database_connectie.commit()
+    print("De account is succesvol gemaakt u kan nu ermee inloggen ")
+    chat_object.welkom()
 
 
 
