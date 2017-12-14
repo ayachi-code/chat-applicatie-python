@@ -35,6 +35,9 @@ def chatten():
 
 
 
+def registreren():
+    pass
+
 
 
 class chat:
