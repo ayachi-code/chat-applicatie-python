@@ -24,10 +24,14 @@ def inlogen():
     row = cur.fetchone()
     if row is not None:
         print("Dit account bestaat ")
+        chatten()
     if row is None:
-        print("Dit account bestaat niet .... ")
+        print("Dit account bestaat niet probeer het nog een keer ....  ")
+        inlogen()
 
 
+def chatten():
+    print("Welkom bij het chatten... ")
 
 
 
