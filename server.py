@@ -1,6 +1,6 @@
 import MySQLdb
 
-database_connectie = MySQLdb.connect(host="localhost",user="root",passwd="almujaahid/0",db="chat")
+database_connectie = MySQLdb.connect(host="localhost",user="root",passwd="/0",db="chat")
 
 cur = database_connectie.cursor()
 
@@ -22,9 +22,13 @@ def inlogen():
     #Check als het in de databsae id ....
     cur.execute("SELECT * FROM gegevens WHERE naam = %s and wachtwoord = %s", (naam,wachtwoord))
     row = cur.fetchone()
-    while row is not None:
-        print(row)
-        row = cur.fetchone()
+    if row is not None:
+        print("Dit account bestaat ")
+    if row is None:
+        print("Dit account bestaat niet .... ")
+
+
+
 
 
 
