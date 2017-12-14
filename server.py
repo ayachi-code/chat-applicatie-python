@@ -20,7 +20,11 @@ def inlogen():
     ruimten(3)
     wachtwoord = input("Type je wachtwoord ")
     #Check als het in de databsae id ....
-
+    cur.execute("SELECT * FROM gegevens WHERE naam = %s and wachtwoord = %s", (naam,wachtwoord))
+    row = cur.fetchone()
+    while row is not None:
+        print(row)
+        row = cur.fetchone()
 
 
 
