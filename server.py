@@ -32,6 +32,11 @@ def inlogen():
 
 def chatten():
     print("Welkom bij het chatten... ")
+    chat_bericht = input("Type een bericht ")
+    cur.execute("INSERT INTO chatbericht (bericht) VALUES (%s) ", (chat_bericht))
+    database_connectie.commit()
+    print("data verstuurt ")
+
 
 
 
