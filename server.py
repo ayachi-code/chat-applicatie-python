@@ -14,3 +14,11 @@ class chat:
             registreren()
         elif welkom_input == "2":
             inlogen()
+
+
+
+
+
+
+#Definieren
+chat_object = chat()
