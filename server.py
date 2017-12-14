@@ -36,7 +36,13 @@ def chatten():
 
 
 def registreren():
-    pass
+    print("je bent nu aan het registreren ")
+    naam_maken = input("Type een gebruikersnaam... ")
+    wachtwoord_maken = input("Type je wachtwoord... ")
+    wachtwoord_maken = input("Herhaal je wachtwoord correct... ")
+    cur.execute("INSERT INTO gegevens (naam,wachtwoord) VALUES (%s,%s)", (naam_maken,wachtwoord_maken))
+
+
 
 
 
