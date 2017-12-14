@@ -34,12 +34,12 @@ def inlogen():
 def chatten():
     print("Welkom bij het chatten... ")
     chat_bericht = input("Type een bericht ")
-    cur.execute("INSERT INTO chatbericht (bericht) VALUES (%s)", [chat_bericht])
+    cur.execute("INSERT INTO chatbericht(gebruiksnaam,bericht) VALUES (%s,%s)", [naam,chat_bericht])
     database_connectie.commit()
     cur.execute("SELECT bericht FROM chatbericht")
     data = cur.fetchall()
     for row in data :
-        print ("user: " + naam + row[0])
+        print ("user:" + naam + " " + row[0])
 
 
 
