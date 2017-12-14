@@ -1,11 +1,29 @@
 import MySQLdb
 import time
+import thread
+
+
 
 
 
 database_connectie = MySQLdb.connect(host="localhost",user="root",passwd="/0",db="chat")
 
 cur = database_connectie.cursor()
+
+
+
+#Set interval functie maar dan in python: bron: https://stackoverflow.com/questions/2697039/python-equivalent-of-setinterval
+
+
+def set_interval(func, sec):
+    def func_wrapper():
+        set_interval(func, sec)
+        func()
+    t = threading.Timer(sec, func_wrapper)
+    t.start()
+    return t
+
+
 
 
 def ruimten(hoeveel):
