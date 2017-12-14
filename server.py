@@ -1,9 +1,10 @@
 import MySQLdb
+import time
+
 
 database_connectie = MySQLdb.connect(host="localhost",user="root",passwd="/0",db="chat")
 
 cur = database_connectie.cursor()
-
 
 
 def ruimten(hoeveel):
@@ -33,9 +34,21 @@ def inlogen():
 def chatten():
     print("Welkom bij het chatten... ")
     chat_bericht = input("Type een bericht ")
-    cur.execute("INSERT INTO chatbericht (bericht) VALUES (%s)", (chat_bericht))
-    print("data verstuurt ")
+    cur.execute("INSERT INTO chatbericht (bericht) VALUES (%s)", [chat_bericht])
     database_connectie.commit()
+    cur.execute("SELECT bericht FROM chatbericht")
+    data = cur.fetchall()
+    for row in data :
+        print ("user: " + naam + row[0])
+
+
+
+
+
+
+
+
+
 
 
 
@@ -70,3 +83,8 @@ class chat:
 chat_object = chat()
 
 welkom_scherm = chat_object.welkom()
+
+
+#sluiten
+cur.close ()
+database_connectie.close ()
